@@ -1,0 +1,11 @@
+[project]
+name = "medicamentos-cli"
+version = "1.0.0"
+description = "Controle de medicamentos para cuidadores via terminal."
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.1.0"
+]
