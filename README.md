@@ -1,4 +1,7 @@
+ 
 #  Controle de Medicamentos CLI
+
+[![Pipeline CI](https://github.com/CarlosEduardoKesley/medicamentos-projeto/actions/workflows/ci.yml/badge.svg)](https://github.com/CarlosEduardoKesley/medicamentos-projeto/actions/workflows/ci.yml)
 
 ## 1. Descrição do Problema Real
 Muitos cuidadores de idosos lidam com rotinas exaustivas e múltiplas medicações. A confusão nos horários e dosagens é uma dor real que coloca a saúde do paciente em risco.
@@ -21,7 +24,7 @@ Cuidadores familiares ou profissionais de pessoas idosas ou com doenças crônic
 * GitHub Actions (Integração Contínua)
 
 ## 6. Instruções de Instalação
-1. Clone o repositório: `git clone [SEU LINK DO GITHUB AQUI]`
+1. Clone o repositório: `git clone https://github.com/CarlosEduardoKesley/medicamentos-projeto.git`
 2. Acesse a pasta do projeto: `cd medicamentos-cli`
 3. Instale as dependências: `pip install -e .[dev]`
 
@@ -41,10 +44,10 @@ Execute o comando no terminal:
 **1.0.0** (Versionamento Semântico MAJOR.MINOR.PATCH)
 
 ## 11. Autor
-[SEU NOME COMPLETO AQUI]
+Carlos Eduardo Kesley de Oliveira Fernandes
 
 ## 12. Link do Repositório Público
-[COLOQUE O LINK DO SEU GITHUB AQUI]
+https://github.com/CarlosEduardoKesley
 
 ## 13. Evidência de Funcionamento
-*(Adicione aqui um print do seu terminal rodando o programa ou o resultado dos testes verdes)*
+![alt text](image.png)
