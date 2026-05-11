@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Medicamentos</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; background-color: #f4f4f9; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .alerta { background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 5px; margin-bottom: 20px; border-left: 5px solid #ffeeba;}
+        .remedio { background-color: #e2e3e5; padding: 15px; margin-top: 10px; border-radius: 5px; border-left: 5px solid #6c757d; }
+        h1, h2 { color: #333; }
+        .form-cadastro { background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        input, button { padding: 10px; margin: 5px 0; border-radius: 4px; border: 1px solid #ccc; width: calc(100% - 22px); }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; font-weight: bold; width: 100%;}
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💊 Controle de Medicamentos</h1>
+        
+        <div class="alerta">
+            <strong>⚠️ Atenção Cuidador:</strong> {{ alerta }}
+        </div>
+
+        <div class="form-cadastro">
+            <h2>Cadastrar Novo:</h2>
+            <form action="/adicionar" method="post">
+                <input type="text" name="nome" placeholder="Nome do Medicamento" required>
+                <input type="time" name="horario" required>
+                <button type="submit">➕ Adicionar</button>
+            </form>
+        </div>
+
+        <h2>Horários de Hoje:</h2>
+        
+        {% for remedio in remedios %}
+            <div class="remedio">
+                <strong>{{ remedio.horario }}</strong> - {{ remedio.nome }}
+            </div>
+        {% else %}
+            <p>Nenhum medicamento cadastrado para hoje.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

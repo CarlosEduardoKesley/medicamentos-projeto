@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: medicamentos-app
+Version: 1.0.0
+Summary: Controle de medicamentos para cuidadores com interface web e alertas climáticos.
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: httpx
+Requires-Dist: jinja2
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"

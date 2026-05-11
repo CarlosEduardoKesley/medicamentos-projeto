@@ -1,43 +1,32 @@
-def adicionar_medicamento(nome, horario, lista):
-    """Regra de negócio para adicionar medicamento."""
-    if not nome or not horario:
-        return False, "Erro: Nome e horário são obrigatórios."
-    
-    lista.append({"nome": nome, "horario": horario})
-    return True, "Medicamento adicionado com sucesso!"
+import os
+from fastapi import FastAPI, Request, Form
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import RedirectResponse
 
-def listar_medicamentos(lista):
-    """Regra de negócio para listar medicamentos."""
-    if not lista:
-        return "Nenhum medicamento cadastrado."
-    
-    resultado = "--- Lista de Medicamentos ---\n"
-    for med in lista:
-        resultado += f"⏰ {med['horario']} - 💊 {med['nome']}\n"
-    return resultado
+app = FastAPI()
 
-def menu():
-    """Interface de Linha de Comando (CLI)."""
-    medicamentos = []
-    while True:
-        print("\n=== CONTROLE PARA CUIDADORES ===")
-        print("1. Adicionar Medicamento")
-        print("2. Listar Medicamentos")
-        print("3. Sair")
-        opcao = input("Escolha uma opção: ")
+# Isso garante que o Python ache a pasta templates não importa onde o terminal esteja!
+DIRETORIO_ATUAL = os.path.dirname(os.path.abspath(__file__))
+caminho_templates = os.path.join(DIRETORIO_ATUAL, "templates")
 
-        if opcao == '1':
-            nome = input("Qual o nome do remédio? ")
-            horario = input("Qual o horário? (Ex: 08:00): ")
-            sucesso, msg = adicionar_medicamento(nome, horario, medicamentos)
-            print(msg)
-        elif opcao == '2':
-            print(listar_medicamentos(medicamentos))
-        elif opcao == '3':
-            print("Saindo do sistema...")
-            break
-        else:
-            print("Opção inválida, tente novamente.")
+templates = Jinja2Templates(directory=caminho_templates)
 
-if __name__ == "__main__":
-    menu()
+# Sua "base de dados" na memória
+medicamentos = [
+    {"nome": "Losartana 50mg", "horario": "08:00"},
+    {"nome": "Vitamina D", "horario": "12:00"}
+]
+
+@app.get("/")
+async def home(request: Request):
+    alerta_clima = "Sistema online! Caminho das pastas corrigido com sucesso."
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html", 
+        context={"request": request, "remedios": medicamentos, "alerta": alerta_clima}
+    )
+
+@app.post("/adicionar")
+async def adicionar_remedio(nome: str = Form(...), horario: str = Form(...)):
+    medicamentos.append({"nome": nome, "horario": horario})
+    return RedirectResponse(url="/", status_code=303)

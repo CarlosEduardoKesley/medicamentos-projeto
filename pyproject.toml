@@ -1,8 +1,13 @@
 [project]
-name = "medicamentos-cli"
+name = "medicamentos-app"
 version = "1.0.0"
-description = "Controle de medicamentos para cuidadores via terminal."
-dependencies = []
+description = "Controle de medicamentos para cuidadores com interface web e alertas climáticos."
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "jinja2"
+]
 
 [project.optional-dependencies]
 dev = [
