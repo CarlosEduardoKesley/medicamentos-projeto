@@ -2,7 +2,7 @@
 
 [![Pipeline CI](https://github.com/CarlosEduardoKesley/medicamentos-projeto/actions/workflows/ci.yml/badge.svg?branch=entrega-intermediaria)](https://github.com/CarlosEduardoKesley/medicamentos-projeto/actions/workflows/ci.yml)
 
-> 🌐 **Aplicação publicada:** `[link do deploy aqui]`
+> 🌐 **Aplicação publicada:** https://medicamentos-projeto.onrender.com
 
 ---
 
