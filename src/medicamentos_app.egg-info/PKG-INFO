@@ -6,6 +6,8 @@ Requires-Dist: fastapi
 Requires-Dist: uvicorn
 Requires-Dist: httpx
 Requires-Dist: jinja2
+Requires-Dist: python-multipart
 Provides-Extra: dev
 Requires-Dist: pytest>=7.0.0; extra == "dev"
 Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: httpx; extra == "dev"
